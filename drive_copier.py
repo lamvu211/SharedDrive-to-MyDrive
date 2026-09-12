@@ -3,7 +3,11 @@ import time
 import re
 import random
 import threading
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Tắt cảnh báo timeout vô hại của thư viện google_auth_httplib2
+logging.getLogger('google_auth_httplib2').setLevel(logging.ERROR)
 try:
     from googleapiclient.discovery import build
     from googleapiclient.errors import HttpError
